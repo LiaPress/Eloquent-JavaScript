@@ -1,0 +1,3 @@
+# clone of the original book (tools/convert.mjs reads it) and tool caches
+.cache/
+.playwright-mcp/

@@ -1,0 +1,131 @@
+{
+ "00_intro": {
+  "load": [
+   "code/intro.js"
+  ],
+  "sandboxes": {}
+ },
+ "01_values": {
+  "load": [],
+  "sandboxes": {}
+ },
+ "02_program_structure": {
+  "load": [],
+  "sandboxes": {}
+ },
+ "03_functions": {
+  "load": [],
+  "sandboxes": {}
+ },
+ "04_data": {
+  "load": [
+   "code/journal.js",
+   "code/chapter/04_data.js"
+  ],
+  "sandboxes": {}
+ },
+ "05_higher_order": {
+  "load": [
+   "code/scripts.js",
+   "code/chapter/05_higher_order.js",
+   "code/intro.js"
+  ],
+  "sandboxes": {}
+ },
+ "06_object": {
+  "load": [
+   "code/chapter/06_object.js"
+  ],
+  "sandboxes": {}
+ },
+ "07_robot": {
+  "load": [
+   "code/chapter/07_robot.js",
+   "code/animatevillage.js"
+  ],
+  "sandboxes": {}
+ },
+ "08_error": {
+  "load": [
+   "code/chapter/08_error.js"
+  ],
+  "sandboxes": {}
+ },
+ "09_regexp": {
+  "load": [],
+  "sandboxes": {}
+ },
+ "10_modules": {
+  "load": [
+   "code/packages_chapter_10.js",
+   "code/chapter/07_robot.js"
+  ],
+  "sandboxes": {}
+ },
+ "11_async": {
+  "load": [
+   "code/hangar2.js",
+   "code/chapter/11_async.js"
+  ],
+  "sandboxes": {}
+ },
+ "12_language": {
+  "load": [
+   "code/chapter/12_language.js"
+  ],
+  "sandboxes": {}
+ },
+ "13_browser": {
+  "load": [],
+  "sandboxes": {}
+ },
+ "14_dom": {
+  "load": [],
+  "sandboxes": {
+   "homepage": "<!doctype html>\n<html>\n  <head>\n    <title>My home page</title>\n  </head>\n  <body>\n    <h1>My home page</h1>\n    <p>Hello, I am Marijn and this is my home page.</p>\n    <p>I also wrote a book! Read it\n      <a href=\"http://eloquentjavascript.net\">here</a>.</p>\n  </body>\n</html>"
+  }
+ },
+ "15_event": {
+  "load": [],
+  "sandboxes": {}
+ },
+ "16_game": {
+  "load": [
+   "code/chapter/16_game.js",
+   "code/levels.js",
+   "code/_stop_keys.js"
+  ],
+  "sandboxes": {}
+ },
+ "17_canvas": {
+  "load": [
+   "code/chapter/16_game.js",
+   "code/levels.js",
+   "code/_stop_keys.js",
+   "code/chapter/17_canvas.js"
+  ],
+  "sandboxes": {
+   "svg": "<p>Normal HTML here.</p>\n<svg xmlns=\"http://www.w3.org/2000/svg\">\n  <circle r=\"50\" cx=\"50\" cy=\"50\" fill=\"red\"/>\n  <rect x=\"120\" y=\"5\" width=\"90\" height=\"90\"\n        stroke=\"blue\" fill=\"none\"/>\n</svg>",
+   "pie": "<canvas width=\"200\" height=\"200\"></canvas>\n<script>\n  let cx = document.querySelector(\"canvas\").getContext(\"2d\");\n  let total = results\n    .reduce((sum, {count}) => sum + count, 0);\n  // Start at the top\n  let currentAngle = -0.5 * Math.PI;\n  for (let result of results) {\n    let sliceAngle = (result.count / total) * 2 * Math.PI;\n    cx.beginPath();\n    // center=100,100, radius=100\n    // from current angle, clockwise by slice's angle\n    cx.arc(100, 100, 100,\n           currentAngle, currentAngle + sliceAngle);\n    currentAngle += sliceAngle;\n    cx.lineTo(100, 100);\n    cx.fillStyle = result.color;\n    cx.fill();\n  }\n</script>",
+   "game": "<body>\n  <script>\n    runGame(GAME_LEVELS, CanvasDisplay);\n  </script>\n</body>"
+  }
+ },
+ "18_http": {
+  "load": [],
+  "sandboxes": {}
+ },
+ "19_paint": {
+  "load": [
+   "code/chapter/19_paint.js"
+  ],
+  "sandboxes": {}
+ },
+ "20_node": {
+  "load": [],
+  "sandboxes": {}
+ },
+ "21_skillsharing": {
+  "load": [],
+  "sandboxes": {}
+ }
+}

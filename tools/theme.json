@@ -1,0 +1,35 @@
+{
+  "name": "Eloquent JavaScript",
+  "source": "Stylesheet of the original website (html/css/ejs.css of github.com/marijnh/Eloquent-JavaScript)",
+  "mood": "A printed book on a white page: serif text, engraved capitals as titles, thin teal rules around code, almost no decoration.",
+  "fonts": {
+    "body": "Georgia, 'Nimbus Roman No9 L', 'Century Schoolbook L', serif",
+    "heading": "Georgia, 'Nimbus Roman No9 L', 'Century Schoolbook L', serif",
+    "mono": "ui-monospace, 'DejaVu Sans Mono', Menlo, Consolas, monospace",
+    "quote": "Georgia, 'Nimbus Roman No9 L', 'Century Schoolbook L', serif",
+    "heading_weight": 700,
+    "heading_letter_spacing": "2px",
+    "line_height": 1.45,
+    "size": "1.8rem"
+  },
+  "light": {
+    "background": "#ffffff",
+    "text": "#000000",
+    "accent": "#446677",
+    "accent_text": "#446677",
+    "border": "#dddddd",
+    "surface": "#f6f8f9",
+    "surface_strong": "#e9eef0"
+  },
+  "dark": "auto",
+  "shape": {
+    "radius": "0.3rem",
+    "radius_small": "0.2rem",
+    "radius_large": "0",
+    "shadow": "none"
+  },
+  "layout": {
+    "content_width": "70rem"
+  },
+  "extra_css": "/* titles: sizes of the book, relative to the text */\n.lia-slide__content h1.h1 { font-size: 130%; }\n.lia-slide__content h2.h1 { font-size: 130%; }\n.lia-slide__content h3.h1 { font-size: 115%; }\n.lia-slide__content h4.h1 { font-size: 100%; }\n/* quotes: smaller, indented, no panel */\n.lia-slide__content .lia-quote { background: transparent; border: none; box-shadow: none; margin-left: 3em; padding: 0; font-size: 85%; }\n.lia-slide__content .lia-quote, .lia-slide__content .lia-quote__text, .lia-slide__content .lia-quote p { color: rgba(var(--color-text), 0.8); font-style: normal; font-weight: normal; text-align: left; }\n.lia-slide__content .lia-quote footer, .lia-slide__content .lia-quote cite, .lia-slide__content .lia-quote .lia-cite { text-align: left; }\n.lia-slide__content .lia-quote cite, .lia-slide__content .lia-quote .lia-cite { font-style: italic; }\n/* code: thin teal rules as on the website */\n.lia-slide__content .lia-code:not(.lia-code--inline) { border: none; border-top: 1px solid #44aabb; border-bottom: 1px solid #44aabb; border-radius: 0; }\n.lia-slide__content .lia-code--inline { background: transparent; color: inherit; padding: 0 2px; border: none; }\n.lia-slide__content .ejs-frame iframe { border: 1px dotted #44aabb !important; border-radius: 0 !important; }\n/* links: no underline until hovered */\n.lia-slide__content a { text-decoration: none; }\n.lia-slide__content a:hover { text-decoration: underline; }\n/* figures: centered */\n.lia-slide__content .lia-figure { margin-left: auto; margin-right: auto; }\n.lia-slide__content .lia-figure__media, .lia-slide__content p > img { max-width: 100%; }"
+}
