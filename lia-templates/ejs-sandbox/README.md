@@ -1,6 +1,6 @@
 <!--
 author:   LiaScript version of the sandbox of eloquentjavascript.net
-version:  0.1.1
+version:  0.1.2
 language: en
 narrator: US English Female
 comment:  Runs the code examples of the book "Eloquent JavaScript" the way its website does: one shared sandbox per chapter, visible frames for HTML examples.

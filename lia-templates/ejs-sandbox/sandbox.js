@@ -800,6 +800,26 @@
     return names
   }
 
+  // True if a block ends with an expression whose value is worth showing,
+  // as a console would: a literal, a calculation, a name. Calls,
+  // assignments and the like are left alone; they act instead of answering.
+  function endsWithValue(code) {
+    let ast
+    try {
+      ast = acorn.parse(code, {
+        sourceType: detectSourceType(code), ecmaVersion: "latest",
+        allowAwaitOutsideFunction: true
+      })
+    } catch (_) { return false }
+    let last = ast.body[ast.body.length - 1]
+    if (!last || last.type != "ExpressionStatement") return false
+    let quiet = /^(CallExpression|NewExpression|AssignmentExpression|UpdateExpression|AwaitExpression|YieldExpression|ImportExpression|ArrowFunctionExpression|FunctionExpression|ClassExpression)$/
+    let expr = last.expression
+    while (expr.type == "ParenthesizedExpression" || expr.type == "ChainExpression") expr = expr.expression
+    if (expr.type == "UnaryExpression" && (expr.operator == "delete" || expr.operator == "void")) return false
+    return !quiet.test(expr.type)
+  }
+
   // What the terminal says after a run without any output, so the reader
   // sees that the block was loaded. Null if nothing needs to be said.
   function silentNote(code, visible) {
@@ -857,7 +877,11 @@
         if (opts.focus) { box.win.focus(); if (box.win.document.body) box.win.document.body.focus() }
       } else {
         let value = await box.run(opts.code)
-        if (value != null && opts.expr && output.empty) box.out("log", [value])
+        // The value of a block that is an expression is shown, as on the
+        // website for the blocks it marks, and here also for a block that
+        // simply ends with a value (13, "text", a + b).
+        if (value !== undefined && output.empty && ((opts.expr && value != null) || endsWithValue(opts.code)))
+          box.out("log", [value])
         if (box.visible) box.resizeFrame()
       }
       box.finishSoon()
@@ -874,7 +898,7 @@
       if (!chapter || key.indexOf(chapter + "/") == 0) dropBox(key)
   }
 
-  const EJS = {run, reset, Box, preprocess, represent, formatArgs, declaredNames, silentNote, state}
+  const EJS = {run, reset, Box, preprocess, represent, formatArgs, declaredNames, silentNote, endsWithValue, state}
   if (typeof module == "object" && module.exports && !global.document) module.exports = EJS
   else global.EJS = EJS
 })(typeof window != "undefined" ? window : globalThis)
